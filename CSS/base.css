@@ -1,0 +1,52 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    width: 100%;
+    border: 2px solid;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer2 p {
+    text-align: center;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.foodHeader{
+    background-color: crimson;
+}
+
+.foodHeader h1 {
+    text-align: center;
+}
+
+.question {
+    height: 400px;
+    border: 2px solid;
+}
+
+.question h2 {
+    text-align: center;
+}
+
+.userInput {
+    height: 400px;
+    border: 2px solid;
+}
+
+.userInput form {
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.userInput h2 {
+    text-align: center;
+}

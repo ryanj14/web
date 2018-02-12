@@ -1,9 +1,56 @@
 <html>
 	<head>
 	<!--Starter page for project-->
+    <title>Food Randomizer</title>
+    <meta charset="utf-8">
+        
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="CSS/base.css" type="text/css">
+        
 	</head>
 
 	<body>
-	</body>
+        
+        <!-- Keeping everything together -->
+    <div class="wrapper">
+            
+        <div class="foodHeader">
+            <h1>Food Randomizer</h1>
+        </div>
+        
+        <div class="question">
+            <h2>This section can be used for the quesiton thing.</h2>
+        </div>
+            
+        <div class="userInput">
+            <h2>This section can be used for the user input.</h2>
+            <form action="/action_page.php">
+                Food One:<br>
+                <input type="text" name="food1" placeholder="Apple">
+                <br>
+                Food Two:<br>
+                <input type="text" name="food2" value="">
+                <br>
+                Food Three:<br>
+                <input type="text" name="food3" value="">
+                <br>
+                Food Four:<br>
+                <input type="text" name="food4" value="">
+                <br>
+                Food Five:<br>
+                <input type="text" name="food5" value="">
+                <br><br>
+                <input type="submit" value="Randomize">
+            </form> 
+        </div>
+        
+        <footer>
+            <div class="footer2">
+                <p>Here's our footer.</p>
+            </div>
+        </footer>
+        
+    </div> <!-- End of wrapper -->
 
+    </body>
 </html>
