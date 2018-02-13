@@ -1,18 +1,67 @@
 <html>
 	<head>
 	<!--Starter page for project-->
+    <title>Food Randomizer</title>
+    <meta charset="utf-8">
+        
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="CSS/base.css" type="text/css">
+        
 	</head>
 
 	<body>
-		<!--Text Boxes to type Questions-->
-		<div id="questions">
-			<p>Enter your Qustion.</p>
-			<form action="#" method="post">
-				<input type="text" name="q1" placeholder="Question" required multiple>
-				<br><br>
-	  		<input type="submit" value="Submit">
-			</form>
-		</div>
-	</body>
+        
+    <!-- Keeping everything together -->
+    <div class="wrapper">
+            
+        <div class="foodHeader">
+            <h1>Food Randomizer</h1>
+        </div>
+        
+        <div class="question">
+            <h2>This section can be used for the question thing.</h2>
+            
+            <!--Text Boxes to type Questions-->
+            <div id="questions">
+                <form action="#" method="post">
+                    Enter your question:<br>
+                    <input type="text" name="q1" placeholder="Question" required multiple>
+                    <br><br>
+                <input type="submit" value="Submit">
+                </form>
+            </div>
+            
+        </div>
+            
+        <div class="userInput">
+            <h2>This section can be used for the user input.</h2>
+            <form action="food.php" method="post">
+                Food One:<br>
+                <input type="text" name="food[]" placeholder="Apple">
+                <br>
+                Food Two:<br>
+                <input type="text" name="food[]" value="">
+                <br>
+                Food Three:<br>
+                <input type="text" name="food[]" value="">
+                <br>
+                Food Four:<br>
+                <input type="text" name="food[]" value="">
+                <br>
+                Food Five:<br>
+                <input type="text" name="food[]" value="">
+                <br><br>
+                <input type="submit" value="Randomize">
+            </form> 
+        </div>
+        
+        <footer>
+            <div class="footer2">
+                <p>Here's our footer.</p>
+            </div>
+        </footer>
+        
+    </div> <!-- End of wrapper -->
 
+    </body>
 </html>
