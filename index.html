@@ -9,19 +9,26 @@
         
     <script>
     var counter = 2;
+    var warning = "You need to fill in all inputs"
 	onload=function() {
 		document.getElementById('submit').onclick=function(){
 			//user enter
 			var choices = document.getElementsByTagName('input')
+            var errmsg = document.getElementById('noEntry')
 			
 			//numbers of choice user wants
-			var n = 1;
+			var n = 1
             
             //checking input is filled
-			if(checkInput(choices) == 0){
-				alert('you need to fix all input boxes')
-				return
-			}
+            for (var i = 0; i < counter; i++) {
+                if(typeof(choices[i].value) == "undefined" || choices[i].value == ""){
+//				    choices[i].innerHTML += warning;
+                    errmsg.innerHTML = warning
+                    return;
+                } else {
+                    errmsg.innerHTML = "";
+                }
+            }
 			
 			//display user's choices
 //			var UserChoices = "Your choices <ul>"
@@ -40,37 +47,30 @@
 		}
 	}
     
-    function checkInput(array) {
-        for (var i = 0; i < counter; i++) {
-            if(typeof(array[i].value) == "undefined" || array[i].value == ""){
-				return 0
-			}
-        }
-        return 1
-    }
-    
     function addBox() {
         var addBtn = document.getElementById('add')
         var input = '<input type="text" id="choices" name="food[]">'
         var inputBoxes = document.getElementsByClassName('newInput')
+        var errmsg = document.getElementById('tooMuchInput')
         if (counter == 8) {
-            document.getElementById('tooMuchInput').innerHTML = "you only allowed 8 boxes"   
+            errmsg.innerHTML = "you only allowed 8 boxes"   
         } else {
             inputBoxes[counter].innerHTML = input
             counter++
-            document.getElementById('tooMuchInput').innerHTML = ""
+            errmsg.innerHTML = ""
         }
     }
         
     function deleteBox() {
         var deleteBtn = document.getElementById('add')
         var inputBoxes = document.getElementsByClassName('newInput')
+        var errmsg = document.getElementById('tooMuchInput')
         if (counter == 2) {
-            document.getElementById('tooMuchInput').innerHTML = "you need at least 2 choices"   
+            errmsg.innerHTML = "you need at least 2 choices"   
         } else {
             inputBoxes[counter - 1].innerHTML = "";
             counter--
-            document.getElementById('tooMuchInput').innerHTML = ""
+            errmsg.innerHTML = ""
         }
     }
 
@@ -90,8 +90,9 @@
 
             <h2>Welcome to Food Randomizer.</h2>
             <p>Please enter your choices here: </p>
-			<p class="newInput"><input type="text" id="choices" name="food[]" placeholder="e.g. apple"></p><p class="newInput"><input type="text" id="choices" name="food[]"></p>
-			<p class="newInput"></p>
+			<p class="newInput"><input type="text" placeholder="e.g. apple"></p>
+            <p class="newInput"><input type="text"></p>
+            <p class="newInput"></p>
 			<p class="newInput"></p>
 			<p class="newInput"></p>
 			<p class="newInput"></p>
@@ -102,6 +103,7 @@
 			<button id="add" type="button" onclick="addBox();">+</button>
             <button id="delete" type="button" onclick="deleteBox();">-</button>
 			</p>
+            <p id="noEntry"></p>
 <!--
             <p>how many choice(number): <input type="text" id="n"></p>
 			-->
