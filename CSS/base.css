@@ -2,13 +2,15 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-size: 90%;
+    background-color: skyblue;
 }
 
 footer {
     width: 100%;
-    border: 2px solid;
     position: absolute;
     bottom: 0;
+    background-color: dimgrey;
 }
 
 .footer_content p {
@@ -21,7 +23,7 @@ footer {
 }
 
 .foodHeader{
-    background-color: crimson;
+    background-color: dimgrey;
 }
 
 .foodHeader h1 {
@@ -41,8 +43,11 @@ footer {
 }
 
 .userInput {
-	height:auto;
-    border: 2px solid;
+    height: 400px;
+    background-color: burlywood;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .userInput form {
