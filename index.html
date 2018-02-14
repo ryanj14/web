@@ -6,37 +6,67 @@
         
     <!-- CSS Files -->
     <link rel="stylesheet" href="CSS/base.css" type="text/css">
-        
+    <script>
+	onload=function() {
+		document.getElementById('submit').onclick=function(){
+			//user enter
+			var choices = document.getElementById('choices')
+			
+			//numbers of choice user wants
+			var n = document.getElementById('n')
+			
+			if(!isNaN(choices.value)){
+				alert('error')
+				return
+			}
+			if(isNaN(n.value)){
+				alert('please enter a number')
+				return
+			}
+			
+			//display user's choices
+			var UserChoices = "Your choices <ul>"
+			var each = choices.value.split(" ")
+			for (i = 0; i < each.length; i++) {
+				UserChoices += "<li>" + each[i] + "</li>"
+			}
+			UserChoices += "</ul>"
+			document.getElementById('d').innerHTML = UserChoices
+			
+			if (n.value > each.length) {
+				alert('not enough choices')
+				return;
+			}
+			//display choices generated
+			var array = each.slice()
+			var answer = "Our suggest<ul>"
+			var random
+			for (i = 0; i < n.value; i++) {
+				random = Math.floor(Math.random() * array.length);
+				answer += "<li>" + array[random] + "</li>"
+				array.splice(random, 1)
+			}
+			answer += "</ul>"
+			document.getElementById('result').innerHTML = answer;
+		}
+	}
+	</script>
 	</head>
 
 	<body>
         
     <!-- Keeping everything together -->
     <div class="wrapper">
-            
         <div class="foodHeader">
             <h1>Food Randomizer</h1>
         </div>
         <div class="userInput">
             <h2>This section can be used for the user input.</h2>
-            <form action="food.php" method="post">
-                Food One:<br>
-                <input type="text" name="food[]" placeholder="Apple">
-                <br>
-                Food Two:<br>
-                <input type="text" name="food[]" value="">
-                <br>
-                Food Three:<br>
-                <input type="text" name="food[]" value="">
-                <br>
-                Food Four:<br>
-                <input type="text" name="food[]" value="">
-                <br>
-                Food Five:<br>
-                <input type="text" name="food[]" value="">
-                <br><br>
-                <input type="submit" value="Randomize">
-            </form> 
+            <p>items(put space in between): <input type="text" id="choices" name="food[]" placeholder="Apple"></p>
+            <p>how many choice(number): <input type="text" id="n"></p>
+            <buttom id="submit" type="button">submit</buttom>
+            <p id="d"></p>
+		  <p id="result"></p>
         </div>
         
         <footer>
@@ -46,6 +76,6 @@
         </footer>
         
     </div> <!-- End of wrapper -->
-
     </body>
+
 </html>
