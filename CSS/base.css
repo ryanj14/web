@@ -2,9 +2,8 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: url("resturant.jpg") no-repeat fixed center;
     background-size: 90%;
-    background-color: crimson;
+    background-color: skyblue;
 }
 
 footer {
@@ -14,11 +13,12 @@ footer {
     background-color: dimgrey;
 }
 
-.footer2 p {
+.footer_content p {
     text-align: center;
 }
 
 .wrapper {
+    height: 100%;
     position: relative;
 }
 
@@ -27,14 +27,6 @@ footer {
 }
 
 .foodHeader h1 {
-    text-align: center;
-}
-
-.question {
-    height: 400px;
-}
-
-.question h2 {
     text-align: center;
 }
 
