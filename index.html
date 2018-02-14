@@ -17,13 +17,11 @@
 			//numbers of choice user wants
 			var n = 1;
             
-//            alert(choices[0].value)
-//			if(checkInput(choices) == 0){
-//				alert('error')
-//				return
-//			} else {
-//                return
-//            }
+            //checking input is filled
+			if(checkInput(choices) == 0){
+				alert('you need to fix all input boxes')
+				return
+			}
 			
 			//display user's choices
 //			var UserChoices = "Your choices <ul>"
@@ -33,7 +31,7 @@
 //			UserChoices += "</ul>"
 //			document.getElementById('d').innerHTML = UserChoices
 			
-			//display choices generated
+			// display choices generated
 			var answer = "Our suggest<ul>"
 			var random = Math.floor(Math.random() * counter)
             answer += "<li>" + choices[random].value + "</li>"
@@ -44,8 +42,7 @@
     
     function checkInput(array) {
         for (var i = 0; i < counter; i++) {
-            if(typeof(array[i].value) == "undefined" || array[i].value === null){
-                alert(i)
+            if(typeof(array[i].value) == "undefined" || array[i].value == ""){
 				return 0
 			}
         }
@@ -61,6 +58,19 @@
         } else {
             inputBoxes[counter].innerHTML = input
             counter++
+            document.getElementById('tooMuchInput').innerHTML = ""
+        }
+    }
+        
+    function deleteBox() {
+        var deleteBtn = document.getElementById('add')
+        var inputBoxes = document.getElementsByClassName('newInput')
+        if (counter == 2) {
+            document.getElementById('tooMuchInput').innerHTML = "you need at least 2 choices"   
+        } else {
+            inputBoxes[counter - 1].innerHTML = "";
+            counter--
+            document.getElementById('tooMuchInput').innerHTML = ""
         }
     }
 
@@ -89,7 +99,8 @@
 			<p class="newInput"></p>
             <p id="tooMuchInput"></p>
 			<p>
-			<button id="add" type="button" onclick="addBox();">Add another item</button>
+			<button id="add" type="button" onclick="addBox();">+</button>
+            <button id="delete" type="button" onclick="deleteBox();">-</button>
 			</p>
 <!--
             <p>how many choice(number): <input type="text" id="n"></p>
