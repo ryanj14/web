@@ -8,13 +8,15 @@ html, body {
 
 footer {
     width: 100%;
-    position: absolute;
+    position: relative;
     bottom: 0;
     background-color: dimgrey;
 }
 
 .footer_content p {
+    position: relative;
     text-align: center;
+    font-family: 'Oswald', sans-serif;
 }
 
 .wrapper {
@@ -22,12 +24,9 @@ footer {
     position: relative;
 }
 
-.foodHeader{
-    background-color: dimgrey;
-}
-
 .foodHeader h1 {
     text-align: center;
+    font-family: 'Oswald', sans-serif;
 }
 
 #questions {
@@ -52,21 +51,37 @@ footer {
 
 #submit {
 	margin-left: 20px;	
+}
+ 
+.join {
+    display: flex;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.userResult {
+    height: 500px;
+    background-color: burlywood;
+    width: 40%;
+    border: 2px solid;
+    margin-left: auto;
+}
+
+.userResult h2 {
+    text-align: center;
 }
 
 .userInput {
-    height: 400px;
+    height: 500px;
     background-color: burlywood;
-    width: 300px;
-    margin-left: auto;
+    width: 40%;
+    border: 2px solid;
     margin-right: auto;
 }
 
-.userInput form {
+.userInput input {
     width: 200px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .userInput h2 {
@@ -88,4 +103,29 @@ header {
     margin-left: auto;
     margin-right: auto;
     background-color: gainsboro;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    background-color: #111;
 }
