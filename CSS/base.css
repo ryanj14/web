@@ -2,36 +2,31 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-size: 90%;
+    background-color: skyblue;
 }
 
 footer {
     width: 100%;
-    border: 2px solid;
     position: absolute;
     bottom: 0;
+    background-color: dimgrey;
 }
 
-.footer2 p {
+.footer_content p {
     text-align: center;
 }
 
 .wrapper {
+    height: 100%;
     position: relative;
 }
 
 .foodHeader{
-    background-color: crimson;
+    background-color: dimgrey;
 }
 
 .foodHeader h1 {
-    text-align: center;
-}
-
-.question {
-    height: 400px;
-}
-
-.question h2 {
     text-align: center;
 }
 
@@ -49,7 +44,10 @@ footer {
 
 .userInput {
     height: 400px;
-    border: 2px solid;
+    background-color: burlywood;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .userInput form {
