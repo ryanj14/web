@@ -77,13 +77,23 @@
         </div>
 
         <div class="userInput">
-            <h2>This section can be used for the user input.</h2>
-            <p>items(put space in between): </p><p class="newInput"><input type="text" id="choices" name="food[]" placeholder="e.g. apple"></p><p class="newInput"><input type="text" id="choices" name="food[]"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p>
-            <p id="tooMuchInput"></p><p><button id="add" type="button" onclick="addBox();">add</button></p>
-
+            <h2>Welcome to Food Randomizer.</h2>
+            <p>Please enter your choices here: </p>
+			<p class="newInput"><input type="text" id="choices" name="food[]" placeholder="e.g. apple"></p><p class="newInput"><input type="text" id="choices" name="food[]"></p>
+			<p class="newInput"></p>
+			<p class="newInput"></p>
+			<p class="newInput"></p>
+			<p class="newInput"></p>
+			<p class="newInput"></p>
+			<p class="newInput"></p>
+            <p id="tooMuchInput"></p>
+			<p>
+			<button id="add" type="button" onclick="addBox();">Add another item</button>
+			</p>
+<!--
             <p>how many choice(number): <input type="text" id="n"></p>
-            <p><button id="submit" type="button">submit</button></p>
-            <p id="d"></p>
+			-->
+            <div id="submit"><button type="button">Choose!</button></div> 
 		  <p id="result"></p>
         </div>
         
