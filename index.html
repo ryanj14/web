@@ -10,6 +10,7 @@
     <script>
     var counter = 2;
     var warning = "You need to fill in all inputs"
+    const re = /^[\w-][\w- ]{0,30}[\w]$/
 	onload=function() {
 		document.getElementById('submit').onclick=function(){
 			//user enter
@@ -24,6 +25,12 @@
                 if(typeof(choices[i].value) == "undefined" || choices[i].value == ""){
 //				    choices[i].innerHTML += warning;
                     errmsg.innerHTML = warning
+                    return;
+                } else {
+                    errmsg.innerHTML = "";
+                }
+                if(!re.test(choices[i].value)) {
+                    errmsg.innerHTML = "you can use letter, numbers, and hyphen"
                     return;
                 } else {
                     errmsg.innerHTML = "";
