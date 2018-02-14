@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/base.css" type="text/css">
         
     <script>
+    var counter = 2;
 	onload=function() {
 		document.getElementById('submit').onclick=function(){
 			//user enter
@@ -43,14 +44,26 @@
 			var answer = "Our suggest<ul>"
 			var random
 			for (i = 0; i < n.value; i++) {
-				random = Math.floor(Math.random() * array.length);
+				random = Math.floor(Math.random() * array.length)
 				answer += "<li>" + array[random] + "</li>"
 				array.splice(random, 1)
 			}
 			answer += "</ul>"
-			document.getElementById('result').innerHTML = answer;
+			document.getElementById('result').innerHTML = answer
 		}
 	}
+    
+    function addBox() {
+        var addBtn = document.getElementById('add')
+        var input = '<input type="text" id="choices" name="food[]">'
+        var inputBoxes = document.getElementsByClassName('newInput')
+        if (counter == 8) {
+            document.getElementById('tooMuchInput').innerHTML = "you only allowed 8 boxes"   
+        } else {
+            inputBoxes[counter].innerHTML = input
+            counter++
+        }
+    }
 	</script>
         
 	</head>
@@ -65,11 +78,11 @@
 
         <div class="userInput">
             <h2>This section can be used for the user input.</h2>
+            <p>items(put space in between): </p><p class="newInput"><input type="text" id="choices" name="food[]" placeholder="e.g. apple"></p><p class="newInput"><input type="text" id="choices" name="food[]"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p>
+            <p id="tooMuchInput"></p><p><button id="add" type="button" onclick="addBox();">add</button></p>
 
-
-            <p>items(put space in between): <input type="text" id="choices" name="food[]" placeholder="Apple"></p>
             <p>how many choice(number): <input type="text" id="n"></p>
-            <buttom id="submit" type="button">submit</buttom>
+            <p><button id="submit" type="button">submit</button></p>
             <p id="d"></p>
 		  <p id="result"></p>
         </div>
