@@ -12,46 +12,45 @@
 	onload=function() {
 		document.getElementById('submit').onclick=function(){
 			//user enter
-			var choices = document.getElementById('choices')
+			var choices = document.getElementsByTagName('input')
 			
 			//numbers of choice user wants
-			var n = document.getElementById('n')
-			
-			if(!isNaN(choices.value)){
-				alert('error')
-				return
-			}
-			if(isNaN(n.value)){
-				alert('please enter a number')
-				return
-			}
+			var n = 1;
+            
+//            alert(choices[0].value)
+//			if(checkInput(choices) == 0){
+//				alert('error')
+//				return
+//			} else {
+//                return
+//            }
 			
 			//display user's choices
 			var UserChoices = "Your choices <ul>"
-			var each = choices.value.split(" ")
-			for (i = 0; i < each.length; i++) {
-				UserChoices += "<li>" + each[i] + "</li>"
+			for (i = 0; i < counter; i++) {
+				UserChoices += "<li>" + choices[i].value + "</li>"
 			}
 			UserChoices += "</ul>"
 			document.getElementById('d').innerHTML = UserChoices
 			
-			if (n.value > each.length) {
-				alert('not enough choices')
-				return;
-			}
 			//display choices generated
-			var array = each.slice()
 			var answer = "Our suggest<ul>"
-			var random
-			for (i = 0; i < n.value; i++) {
-				random = Math.floor(Math.random() * array.length)
-				answer += "<li>" + array[random] + "</li>"
-				array.splice(random, 1)
-			}
+			var random = Math.floor(Math.random() * counter)
+            answer += "<li>" + choices[random].value + "</li>"
 			answer += "</ul>"
 			document.getElementById('result').innerHTML = answer
 		}
 	}
+    
+    function checkInput(array) {
+        for (var i = 0; i < counter; i++) {
+            if(typeof(array[i].value) == "undefined" || array[i].value === null){
+                alert(i)
+				return 0
+			}
+        }
+        return 1
+    }
     
     function addBox() {
         var addBtn = document.getElementById('add')
@@ -64,6 +63,7 @@
             counter++
         }
     }
+
 	</script>
         
 	</head>
@@ -78,10 +78,8 @@
 
         <div class="userInput">
             <h2>This section can be used for the user input.</h2>
-            <p>items(put space in between): </p><p class="newInput"><input type="text" id="choices" name="food[]" placeholder="e.g. apple"></p><p class="newInput"><input type="text" id="choices" name="food[]"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p>
+            <p>items(put space in between): </p><p class="newInput"><input type="text" placeholder="e.g. apple"></p><p class="newInput"><input type="text"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p><p class="newInput"></p>
             <p id="tooMuchInput"></p><p><button id="add" type="button" onclick="addBox();">add</button></p>
-
-            <p>how many choice(number): <input type="text" id="n"></p>
             <p><button id="submit" type="button">submit</button></p>
             <p id="d"></p>
 		  <p id="result"></p>
