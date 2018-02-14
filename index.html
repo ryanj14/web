@@ -6,10 +6,12 @@
         
     <!-- CSS Files -->
     <link rel="stylesheet" href="CSS/base.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
         
     <script>
     var counter = 2;
     var warning = "You need to fill in all inputs"
+    const re = /^[\w-][\w- ]{0,30}[\w]$/
 	onload=function() {
 		document.getElementById('submit').onclick=function(){
 			//user enter
@@ -24,6 +26,12 @@
                 if(typeof(choices[i].value) == "undefined" || choices[i].value == ""){
 //				    choices[i].innerHTML += warning;
                     errmsg.innerHTML = warning
+                    return;
+                } else {
+                    errmsg.innerHTML = "";
+                }
+                if(!re.test(choices[i].value)) {
+                    errmsg.innerHTML = "you can use letter, numbers, and hyphen"
                     return;
                 } else {
                     errmsg.innerHTML = "";
@@ -79,38 +87,47 @@
 	</head>
 
 	<body>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./choices.html">Choice</a></li>
+            </ul>
+        </nav>
         
     <!-- Keeping everything together -->
     <div class="wrapper">
         <div class="foodHeader">
             <h1>Food Randomizer</h1>
         </div>
+        <div class ="join">
+            <div class="userInput">
 
-        <div class="userInput">
-
-            <h2>Welcome to Food Randomizer.</h2>
-            <p>Please enter your choices here: </p>
-			<p class="newInput"><input type="text" placeholder="e.g. apple"></p>
-            <p class="newInput"><input type="text"></p>
-            <p class="newInput"></p>
-			<p class="newInput"></p>
-			<p class="newInput"></p>
-			<p class="newInput"></p>
-			<p class="newInput"></p>
-			<p class="newInput"></p>
-            <p id="tooMuchInput"></p>
-			<p>
-			<button id="add" type="button" onclick="addBox();">+</button>
-            <button id="delete" type="button" onclick="deleteBox();">-</button>
-			</p>
-            <p id="noEntry"></p>
-<!--
-            <p>how many choice(number): <input type="text" id="n"></p>
-			-->
-            <div id="submit"><button type="button">Choose!</button></div> 
-		  <p id="result"></p>
+                <h2>User Input</h2>
+                <p>Please enter your choices here: </p>
+                <p class="newInput"><input type="text" placeholder="e.g. apple"></p>
+                <p class="newInput"><input type="text"></p>
+                <p class="newInput"></p>
+                <p class="newInput"></p>
+                <p class="newInput"></p>
+                <p class="newInput"></p>
+                <p class="newInput"></p>
+                <p class="newInput"></p>
+                <p id="tooMuchInput"></p>
+                <p>
+                <button id="add" type="button" onclick="addBox();">+</button>
+                <button id="delete" type="button" onclick="deleteBox();">-</button>
+                </p>
+                <p id="noEntry"></p>
+    <!--
+                <p>how many choice(number): <input type="text" id="n"></p>
+                -->
+                <div id="submit"><button type="button">Choose!</button></div>
+            </div>    
+            <div class="userResult">
+                <h2>User Result</h2>
+                <p id="result"></p>
+            </div>
         </div>
-        
     </div> <!-- End of wrapper -->
 
     </body>
